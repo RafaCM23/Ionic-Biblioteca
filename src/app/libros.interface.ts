@@ -1,4 +1,4 @@
-export interface Welcome {
+export interface Libros {
     numFound:      number;
     start:         number;
     numFoundExact: boolean;

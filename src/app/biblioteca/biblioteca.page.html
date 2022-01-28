@@ -8,11 +8,16 @@
 
   <ion-list>
 
-    <ion-item button (click)="prueba()">
+    <ion-item button *ngFor="let item of biblioteca">
       <ion-thumbnail slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img src="https://covers.openlibrary.org/b/isbn/{{item.isbn[0]}}.jpg" />
       </ion-thumbnail>
-      <ion-label>Item Thumbnail</ion-label>
+      <ion-label>
+      <h2>{{item.title_suggest}}</h2>
+      <p>Autor: {{item.author_name}}</p>
+      <p>Año: {{item.first_publish_year}}</p>
+    </ion-label>
+    <ion-icon  item-end name="chevron-forward-outline"></ion-icon>
     </ion-item>
 
 
