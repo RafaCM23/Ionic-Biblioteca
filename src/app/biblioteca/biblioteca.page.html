@@ -6,18 +6,23 @@
 
 <ion-content>
 
+  <form (ngSubmit)="cargaLibros()">
+    <ion-searchbar [(ngModel)]="buscado" placeholder="Titulo del libro" type="string" name="tituloBuscado"></ion-searchbar>
+  </form> 
+
   <ion-list>
 
-    <ion-item button *ngFor="let item of biblioteca">
+    <ion-item button *ngFor="let item of biblioteca" [routerLink]="['/detalle',item.isbn[4]]" routerLinkActive="router-link-active" >
       <ion-thumbnail slot="start">
-        <img src="https://covers.openlibrary.org/b/isbn/{{item.isbn[0]}}.jpg" />
+        <img src="https://covers.openlibrary.org/b/isbn/{{item.isbn[2]}}.jpg" />
       </ion-thumbnail>
       <ion-label>
       <h2>{{item.title_suggest}}</h2>
       <p>Autor: {{item.author_name}}</p>
       <p>Año: {{item.first_publish_year}}</p>
     </ion-label>
-    <ion-icon  item-end name="chevron-forward-outline"></ion-icon>
+
+      <ion-icon  item-end name="chevron-forward-outline"></ion-icon>    
     </ion-item>
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LibroService } from './libro.service';
 import { Doc } from '../libros.interface'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-biblioteca',
@@ -9,31 +10,26 @@ import { Doc } from '../libros.interface'
 })
 export class BibliotecaPage implements OnInit {
 
-  constructor(private libroService: LibroService) { }
+  constructor(private libroService: LibroService, private router: Router) { }
 
   biblioteca : Doc[] = [];
+
+  buscado:string="";
   ngOnInit() {
-    this.buscaLibros();
   }
 
 
 
-  prueba(){
-    console.log("funciona")
-  }
- 
-
-  buscaLibros(){
-    this.libroService.cargaBiblioteca()
+  cargaLibros(){
+    this.libroService.cargaBiblioteca(this.buscado)
     .subscribe(resp=>{
       this.biblioteca=resp.docs;
-      console.log(this.biblioteca)
     },error=>{
       console.log(error);
     })
   }
 
-
+ 
 
 }
 

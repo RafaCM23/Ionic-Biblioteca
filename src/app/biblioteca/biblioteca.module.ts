@@ -8,15 +8,14 @@ import { BibliotecaPageRoutingModule } from './biblioteca-routing.module';
 
 import { BibliotecaPage } from './biblioteca.page';
 import { LibroService } from './libro.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BibliotecaPageRoutingModule,
-    HttpClientModule
+    BibliotecaPageRoutingModule
   ],
   declarations: [BibliotecaPage],
   providers:[LibroService]
